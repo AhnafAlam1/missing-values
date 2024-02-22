@@ -8,7 +8,29 @@ format:
 date: today
 date-format: long
 bibliography: cite.bib
+thanks: For further information, please visit https://github.com/AhnafAlam1/missing-values
 ---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+#### Preamble ####
+
+#Purpose: A discussion on missing values and what can done about them
+# Author: Ahnaf Alam
+# Date: February 21, 2024
+# Contact: ahnaf.alam@mail.utoronto.ca
+
+#### Workspace setup ####
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+```
+
 
 # General idea
 
@@ -58,10 +80,43 @@ Single imputation involves filling in the missing value using some form of estim
 
 ## Maximum likelihood
 
+This method involves directly estimating parameters of interest from incomplete data and proceeding with analysis based on this [@newman2014missing]. This form of estimation relies on probability when estimating missing data. It considers likelihood of scenarios and estimates based on what is more probable given the existing data. One of the positives for this mechanism is that it is unbiased under MCAR and MAR [@newman2014missing].
+
+## Multiple imputation
+
+This mechanism works by drawing "repeated simulated datasets from a posterior distribution defined by the missing data conditional observed data" [@pepinsky2018note]. In simpler terms, this method generates several potential solution for missing data, conditional on what you already know from the data. This is a very handy model as improves as you add more variables to the model and further, it is unbiased under MCAR and MAR [@newman2014missing]. 
+
+# Conclusion
+
+Missing data can arise with for various and there are various methods to deal. Some are more preferred my researchers as analysis leads to unbiased estimates. However, for most cases, it's the type of missing value that dictates what sort of mechanism is needed to deal with this issue. @tbl-1 provides a summary for all the different mechanisms used to deal with missing data, along with their benefits and drawbacks, based on [@newman2014missing]. 
 
 
 
 
+```{r}
+#| label: tbl-1
+#| tbl-cap: "Table display major benefits and solutions for each of the missing data mechanism. It is based on Newman (2014). "
+#| warning: false
+#| message: false
+#| echo: false
+
+
+table1 <-
+  tibble(
+    "Potential solutions" = c("Likewise Deletion", "Pairwise Deletion", "Single Imputation", "Maximum Likelihood",
+                              "Multiple Imputation"),
+    "Benefits and drawbacks" = c("Biased under MAR and MNAR", "Biased under MAR and MNAR", "Biased under MCAR", "Unbiased under
+                                 MAR and MCAR. The model improves as you add more variable", "Unbiased under MCAR and MAR. Also
+                                 improves as you add more variables to the model. However, the model gives slightly different
+                                 estimate each time")
+  )
+
+table1 |> 
+  kable(booktabs = TRUE) |>
+  column_spec(c(1, 2), width = "24em") |> 
+  kable_styling(font_size = 9, latex_options = "hold_position")
+
+```
 
 
 
