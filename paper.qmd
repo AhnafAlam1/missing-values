@@ -34,25 +34,25 @@ library(kableExtra)
 
 # General idea
 
-Missing data points are a regular feature in almost all datasets. The defining task for researchers is figure out the source of the missing data as these can lead to bias and error [@newman2014missing]. Missing data can arise for many reasons, however, we can categorize missing values into three distinct categories:
+Missing data points are a regular feature in almost all datasets. Researchers' defining task is figuring out the source of the missing data, as these can lead to bias and error [@newman2014missing]. Missing data can arise for many reasons; however, we can categorize missing values into three distinct categories:
 
   * Missing completely at random (MCAR)
   * Missing at random (MAR)
   * Missing not at random (MNAR)
 
-The subsequent paragraph will focus in discussion what these categories of missing values, their features, reasons and what can researchers do to mitigate the issue of missing data.
+The subsequent paragraph will discuss these categories of missing values, their features, reasons, and what researchers can do to mitigate the issue of missing data.
 
 # Missing completely at random
 
-This situation arises when data points are missing independent of any other variables [@Alexander_2023]. In layman's terms, this points to a situation when data points are missing at random and it is not related to any other factors or variables in the data set. This coincidental situation implies the data set in hand, is still representative of the broader population. Amongst the categories of missing data, this form of missing data is the only one that is completely random. However, this form of missing data is also extremely rare as this type of data requires reserchers to make "untenable assumptions" [@graham2009missing]. 
+This situation arises when data points are missing and independent of other variables [@Alexander_2023]. In layman's terms, this is when data points are missing randomly and unrelated to different factors or variables in the data set. This coincidental situation implies the data set in hand still represents the broader population. Amongst the categories of missing data, this form of missing data is the only one that is entirely random. However, this form of missing data is also scarce as this type of data requires researchers to make "untenable assumptions" [@graham2009missing]. 
 
 # Missing at random
 
-MAR differentiates from MCAR in that missing values are related to one of the of the other variables in the data set. Take for example, a situation where a researcher is interested in differing Indian caste system's opinion on country's current federal government. In this situation, we will have MCAR, if we have missing values for opinion variable for lower castes compared to higher castes.  MAR is systematic missing data mechanism [@newman2014missing], unlike MCAR. 
+MAR differentiates from MCAR in that missing values are related to one of the other variables in the data set.  Take, for example, a situation where a researcher is interested in the differing Indian caste system's opinion on the country's current federal government.  In this situation, we will have MCAR if we have missing values for the opinion variable for lower castes compared to higher castes.  MAR is a systematic missing data mechanism [@newman2014missing], unlike MCAR. 
 
 # Missing not at random
 
-MCAR occurs when missing data is related to unobserved or latent variable or that missing data is related to the missing variable itself. Suppose you are collecting data on patients weights in a medical clinic. You ask patients to self-report their weight to researcher every two weeks. Now, imagine individuals with higher weight level may feel insecure to share their weight details and therefore, they may not report their weight on a regular basis. In this situation, higher weights is related to missing data for weight. It is often impossible to determine if data is MNAR or not as this requires researcher to compare observed values to missing values and researcher does not have access to missing values [@newman2014missing]. 
+MCAR occurs when missing data is related to an unobserved or latent variable or when missing data is associated with the missing variable itself. Suppose you are collecting data on a patient's weight in a medical clinic. You ask patients to self-report their weight to the researcher every two weeks. Now, imagine individuals with higher weight levels may feel insecure about sharing their weight details and may need to report their weight more regularly. In this situation, higher weights are related to missing data for weight. It is often impossible to determine if data is MNAR, as this requires the researcher to compare observed values to missing values, and the researcher needs access to missing values [@newman2014missing].  
 
 # What to do about missing data
 
@@ -67,11 +67,11 @@ There are five common ways to deal with missing values in data sets [@newman2014
 
 ## Listwise deletion
 
-The basic idea behind listwise deletion is to delete all cases where data is missing and proceed with the analysis. The obvious issue with this type of mechanism is we risk reducing sample size significantly, especially if there's a lot of missing data points. This is bad as lowering count of observations means the power for statistical tests significance, and this could lead to biased estimate, particularly for MAR and MNAR.
+The basic idea behind listwise deletion is to delete all cases where data is missing and proceed with the analysis. The apparent issue with this type of mechanism is we risk reducing the sample size significantly, especially if there are a lot of missing data points. This is bad as lowering the count of observations means the power for statistical significance decreases, and this could lead to biased estimates, particularly for MAR and MNAR.
 
 ## Pairwise deletion
 
-Pairwise deletion omits data based on variables used in the analysis. In other words, analysis may be completed based on subset of data depending on where the missing value is [@Moran_2024]. For example, if person X has missing data for income, however, has complete data for race, height and weight, then X will be included in all analysis that involves race, height and weight but excluded from analysis that includes income. This, again, could lead to biased estimate, espcially for MAR and MNAR.
+Pairwise deletion omits data based on variables used in the analysis. In other words, the analysis may be completed based on a subset of data depending on where the missing value is [@Moran_2024]. For example, suppose person X has missing data for income but has complete data for race, height and weight. In that case, X will be included in all analyses that involve race, height, and weight but excluded from analyses that include income. This, again, could lead to biased estimates, especially for MAR and MNAR.
 
 ## Single imputation
 
@@ -80,19 +80,17 @@ Single imputation involves filling in the missing value using some form of estim
 
 ## Maximum likelihood
 
-This method involves directly estimating parameters of interest from incomplete data and proceeding with analysis based on this [@newman2014missing]. This form of estimation relies on probability when estimating missing data. It considers likelihood of scenarios and estimates based on what is more probable given the existing data. One of the positives for this mechanism is that it is unbiased under MCAR and MAR [@newman2014missing].
+This method involves directly estimating parameters of interest from incomplete data and proceeding with analysis based on this [@newman2014missing]. This form of estimation relies on probability when estimating missing data. It considers the likelihood of scenarios and estimates based on what is more probable given the existing data. One of the positives of this mechanism is that it is unbiased under MCAR and MAR [@newman2014missing].
 
 ## Multiple imputation
 
-This mechanism works by drawing "repeated simulated datasets from a posterior distribution defined by the missing data conditional observed data" [@pepinsky2018note]. In simpler terms, this method generates several potential solution for missing data, conditional on what you already know from the data. This is a very handy model as improves as you add more variables to the model and further, it is unbiased under MCAR and MAR [@newman2014missing]. 
+This mechanism draws "repeated simulated datasets from a posterior distribution defined by the missing data conditional observed data" [@pepinsky2018note]. This method generates several potential solutions for missing data, conditional on what you already know from the data. This is a convenient model as it improves as you add more variables to the model, and further, it is unbiased under MCAR and MAR [@newman2014missing]. 
 
 # Conclusion
 
-Missing data can arise with for various and there are various methods to deal. Some are more preferred my researchers as analysis leads to unbiased estimates. However, for most cases, it's the type of missing value that dictates what sort of mechanism is needed to deal with this issue. @tbl-1 provides a summary for all the different mechanisms used to deal with missing data, along with their benefits and drawbacks, based on [@newman2014missing]. 
+Missing data can arise for various, and there are multiple methods to deal with. Researchers prefer some as analysis leads to unbiased estimates. However, in most cases, the missing value type dictates what mechanism is needed to deal with this issue. @tbl-1 provides a summary of all the different mechanisms used to deal with missing data, along with their benefits and drawbacks, based on @newman2014missing. 
 
-
-
-
+*Note: The table is created using R [@R], a statistical software, along with libraries tidyverse [@tidy], kableExtra [@kable] and knitr [@knitr]. *
 ```{r}
 #| label: tbl-1
 #| tbl-cap: "Table display major benefits and solutions for each of the missing data mechanism. It is based on Newman (2014). "
@@ -117,8 +115,6 @@ table1 |>
   kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
-
-
 
 
 
