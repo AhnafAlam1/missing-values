@@ -40,19 +40,19 @@ Missing data points are a regular feature in almost all datasets. Researchers' d
   * Missing at random (MAR)
   * Missing not at random (MNAR)
 
-The subsequent paragraph will discuss these categories of missing values, their features, reasons, and what researchers can do to mitigate the issue of missing data.
+The subsequent paragraphs will discuss these categories of missing values, their features, and what researchers can do to mitigate the issue of missing data.
 
 # Missing completely at random
 
-This situation arises when data points are missing and independent of other variables [@Alexander_2023]. In layman's terms, this is when data points are missing randomly and unrelated to different factors or variables in the data set. This coincidental situation implies the data set in hand still represents the broader population. Amongst the categories of missing data, this form of missing data is the only one that is entirely random. However, this form of missing data is also scarce as this type of data requires researchers to make "untenable assumptions" [@graham2009missing]. 
+This scenario occurs when data points are missing, and their absence is unrelated to other variables [@Alexander_2023]. Simply put, it means that data points are missing randomly and without any connection to other factors/variables in the dataset. This random occurrence suggests that the dataset still accurately reflects the overall population. Among the types of missing data, this form is the only one characterized by complete randomness. However, it is worth noting that this type of missing data is scarce, as researchers often need to make "untenable assumptions" [@graham2009missing] to address it.
 
 # Missing at random
 
-MAR differentiates from MCAR in that missing values are related to one of the other variables in the data set.  Take, for example, a situation where a researcher is interested in the differing Indian caste system's opinion on the country's current federal government.  In this situation, we will have MCAR if we have missing values for the opinion variable for lower castes compared to higher castes.  MAR is a systematic missing data mechanism [@newman2014missing], unlike MCAR. 
+MAR differentiates from MCAR in that missing values are related to one of the other variables in the data set.  An example of MAR would arise if we take a sample from a population and the probability of being included in the sample depends on some known quantity [@van2012flexible].  MAR is a systematic missing data mechanism [@newman2014missing], unlike MCAR. 
 
 # Missing not at random
 
-MCAR occurs when missing data is related to an unobserved or latent variable or when missing data is associated with the missing variable itself. Suppose you are collecting data on a patient's weight in a medical clinic. You ask patients to self-report their weight to the researcher every two weeks. Now, imagine individuals with higher weight levels may feel insecure about sharing their weight details and may need to report their weight more regularly. In this situation, higher weights are related to missing data for weight. It is often impossible to determine if data is MNAR, as this requires the researcher to compare observed values to missing values, and the researcher needs access to missing values [@newman2014missing].  
+MCAR occurs when missing data is related to an unobserved or latent variable or when missing data is associated with the missing variable itself. Suppose you are collecting data on a patient's weight in a medical clinic. You ask patients to self-report their weight to the researcher every two weeks. Now, imagine individuals with higher weight levels feeling insecure about sharing their weight details and choose not to report their weight regularly. In this situation, higher weights are related to missing data for weight. It is often impossible to determine if data is MNAR, as this requires the researcher to compare observed values to missing values, and the researcher needs access to missing values [@newman2014missing].  
 
 # What to do about missing data
 
